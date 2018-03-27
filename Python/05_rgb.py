@@ -6,7 +6,7 @@ import time
 # Set up a color table in Hexadecimal
 COLOR = [0xFF0000, 0x00FF00, 0x0000FF, 0xFFFF00, 0xFF00FF, 0x00FFFF]
 # Set pins' channels with dictionary
-pins = {'Red':17, 'Green':18, 'Blue':27}
+pins = {'Red':11, 'Green':13, 'Blue':12}
 
 def print_message():
 	print ("========================================")
@@ -20,14 +20,14 @@ def print_message():
 	print ("|                                      |")
 	print ("|                            SunFounder|")
 	print ("========================================\n")
-	print 'Program is running...'
-	print 'Please press Ctrl+C to end the program...'
-	raw_input ("Press Enter to begin\n")
+	print ('Program is running...')
+	print ('Please press Ctrl+C to end the program...')
+	input ("Press Enter to begin\n")
 
 def setup():
 	global p_R, p_G, p_B
 	# Set the GPIO modes to BCM Numbering
-	GPIO.setmode(GPIO.BCM)
+	GPIO.setmode(GPIO.BOARD)
 	# Set all LedPin's mode to output, 
 	# and initial level to High(3.3v)
 	for i in pins:
@@ -68,7 +68,7 @@ def setColor(color):
 	p_G.ChangeDutyCycle(G_val)
 	p_B.ChangeDutyCycle(B_val)
 
-	print "color_msg: R_val = %s,	G_val = %s,	B_val = %s"%(R_val, G_val, B_val)	 
+	print("color_msg: R_val = %s, G_val = %s, B_val = %s"%(R_val, G_val, B_val))
 
 def main():
 	print_message()
